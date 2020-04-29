@@ -1,11 +1,14 @@
-import React from 'react';
-import { Button, Container, Row, Col } from 'react-bootstrap';
+import React, {useState} from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import '../Home/home.css';
 import TextArea from '../../Components/TextArea';
 import TextInput from '../../Components/TextInput';
-import Score from '../../Components/Score'
+import Score from '../../Components/Score';
+
+
 
 function App() {
+  const [currentScore, setCurrentScore] = useState(10);
   return (
    <Container className="main" fluid>
        <Row>
@@ -14,10 +17,8 @@ function App() {
            <TextInput />
            </Col>
            <Col xl={6}>
-           <Score />
-           <Button>Reset</Button>
-           </Col>
-           
+           <Score currentScore={currentScore}/>
+          </Col>
        </Row>
    </Container>
   );

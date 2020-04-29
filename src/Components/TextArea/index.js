@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Row, Col, Jumbotron } from 'react-bootstrap';
-import '../TextArea/textarea.css'
+import '../TextArea/textarea.css';
 
 function TextArea() {
   return (
