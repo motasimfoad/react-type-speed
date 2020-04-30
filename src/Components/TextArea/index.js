@@ -4,7 +4,7 @@ import '../TextArea/textarea.css';
 
 function TextArea(props) {
     const [currentText, setCurrentText] = useState(props.currentText);
-    const [testText, setTestText] = useState(currentText.split());
+    const [testText, setTestText] = useState(() => currentText.split(''));
     const [userText, setUserText] = useState(props.userText);
     
     useEffect(() => {
@@ -20,16 +20,12 @@ function TextArea(props) {
                    testText.map((s,i) => {
                        let color;
                        if (i < userText.length){
-                        color = s === userText[i] ? 'red' : 'green';
-                        console.log(userText.length);
-                        
+                        color = s === userText[i] ? 'green' : 'red';
                        }
-                       return <span key={i} style={{backgroundColor: color}}>{s}<br /></span>
+                       return <span key={i} style={{backgroundColor: color}}>{s}</span>
                    })
                }
-                {currentText} <br />
-                {userText}
-           </Jumbotron>
+            </Jumbotron>
            </Col>
        </Row>
   

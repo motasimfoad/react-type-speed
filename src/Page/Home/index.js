@@ -14,7 +14,7 @@ function App() {
   
   const [currentScore, setCurrentScore] = useState(10);
   const [currentText, setCurrentText] = useState(randomText());
-  const [userText, setUserText] = useState("Input here");
+  const [userText, setUserText] = useState('');
 
   const onChange = (e) => {
       setUserText(e.currentTarget.value);
