@@ -1,22 +1,27 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Button, Row, Col, Jumbotron } from 'react-bootstrap';
 import '../TextArea/textarea.css';
 
-function TextArea() {
+function TextArea(props) {
+    const [currentText, setCurrentText] = useState(props.currentText);
+    const [userText, setUserText] = useState(props.userText);
+    
+    useEffect(() => {
+        setUserText(props.userText);
+    })
+
+    
+
+
+
   return (
   
        <Row>
            <Col xl={12}>
            <Jumbotron>
-                <h1>Hello, world!</h1>
-                <p>
-                    This is a simple hero unit, a simple jumbotron-style component for calling
-                    extra attention to featured content or information.
-                </p>
-                <p>
-                    <Button variant="primary">Learn more</Button>
-                </p>
-                </Jumbotron>
+                {currentText} <br />
+                {userText}
+           </Jumbotron>
            </Col>
        </Row>
   
