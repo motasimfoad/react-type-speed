@@ -59,13 +59,14 @@ function App() {
   return (
    <Container className="main" fluid>
        <Row>
-           <Col xl={6}>
+           <Col xl={7}>
            <TextArea currentText={currentText} userText={userText}/>
            <div>
-          <input type="text" placeholder="Input here" onChange={onChange} readOnly={finished}/>
+            <input type="text" placeholder="Input here" onChange={onChange} readOnly={finished}/>
           </div>
+          <button>Next</button>
           </Col>
-           <Col xl={6}>
+          <Col xl={5}>
            <Score time={time} charCount={charCount}/>
           </Col>
           <ScoreCard
@@ -73,7 +74,6 @@ function App() {
             onHide={() => setModalShow(false)}
             currentScore={currentScore}
         />
-        {currentScore}
        </Row>
    </Container>
   );

@@ -12,23 +12,22 @@ function TextArea(props) {
     })
 
   return (
-  
-       <Row>
-           <Col xl={12}>
-           <Jumbotron>
-               {
-                   testText.map((s,i) => {
-                       let color;
-                       if (i < userText.length){
-                        color = s === userText[i] ? 'green' : 'red';
-                       }
-                       return <span key={i} style={{backgroundColor: color}}>{s}</span>
-                   })
-               }
-            </Jumbotron>
-           </Col>
-       </Row>
-  
+             <div>
+                 <h1>
+                 Typing Speed Test
+                 </h1>
+                 <div>
+                    {
+                    testText.map((s,i) => {
+                        let color;
+                        if (i < userText.length){
+                            color = s === userText[i] ? 'green' : 'red';
+                        }
+                        return <span key={i} style={{backgroundColor: color}}>{s}</span>
+                    })
+                    }
+                 </div>
+            </div>
   );
 }
 
