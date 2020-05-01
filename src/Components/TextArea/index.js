@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import { Button, Row, Col, Jumbotron } from 'react-bootstrap';
 import '../TextArea/textarea.css';
 
 function TextArea(props) {

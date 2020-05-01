@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { Container, Row, Col, Modal, Button } from 'react-bootstrap';
 import '../Home/home.css';
 import TextArea from '../../Components/TextArea';
-import TextInput from '../../Components/TextInput';
 import Score from '../../Components/Score';
 import {randomText, scoreEngine} from '../../Constant';
 import { useTimer } from 'use-timer';
@@ -22,7 +21,7 @@ function App() {
 
   const onChange = (e) => {
      const a = e.currentTarget.value;
-     start();
+      start();
       setUserText(a);
       complete(a);
       setCharCount(checker(a));
