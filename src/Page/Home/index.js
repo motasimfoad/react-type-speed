@@ -11,7 +11,7 @@ import ScoreCard from '../../Components/ScoreCard'
 function App() {
  
   const { time, start, pause, reset, isRunning } = useTimer();
-  const [modalShow, setModalShow] = React.useState(true);
+  const [modalShow, setModalShow] = React.useState(false);
   const [currentScore, setCurrentScore] = useState('0');
   const [currentText, setCurrentText] = useState(randomText());
   const [userText, setUserText] = useState('');
@@ -38,6 +38,7 @@ function App() {
   const complete = (e) => {
     if (currentText.length === e.length) {
       pause();
+      setModalShow(true);
      }
   };
 

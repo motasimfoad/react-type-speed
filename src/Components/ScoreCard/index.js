@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button, Form } from 'react-bootstrap';
 import '../ScoreCard/scorecard.css';
 
 function ScoreCard(props) {
