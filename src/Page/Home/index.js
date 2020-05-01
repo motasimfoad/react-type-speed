@@ -18,12 +18,15 @@ function App() {
   const [started, setStarted] = useState(false);
   const [time, setTime] = useState(0);
   const [text, setText] = useState('');
-  const [usetInput, setUserInput] = useState('')
+  const [usetInput, setUserInput] = useState('');
+  const [charCount, setCharCount] = useState('');
 
   const onChange = (e) => {
-      setUserText(e.currentTarget.value);
+     const a = e.currentTarget.value;
+      setUserText(a);
       timer();
-      checker(e);
+      setCharCount(checker(a));
+     
   };
 
   const timer = () => {
@@ -50,7 +53,7 @@ function App() {
            <div>
           <input text="yoyo" type="text" placeholder="Input here" onChange={onChange}/>
           </div>
-          {time} {text} {usetInput}
+          {time} {text} {charCount}
            </Col>
            <Col xl={6}>
            <Score currentScore={currentScore}/>
