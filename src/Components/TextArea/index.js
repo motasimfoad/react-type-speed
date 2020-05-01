@@ -22,7 +22,7 @@ function TextArea(props) {
                     testText.map((s,i) => {
                         let color;
                         if (i < userText.length){
-                            color = s === userText[i] ? 'green' : 'red';
+                            color = s === userText[i] ? '#a2ded0' : '#f1a9a0';
                         }
                         return <span key={i} style={{backgroundColor: color}}>{s}</span>
                     })

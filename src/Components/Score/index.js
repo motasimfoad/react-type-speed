@@ -15,11 +15,11 @@ function Score(props) {
           <h5>
             Your Speed :
           </h5>
-          <h1>
+          <h1 className="wpmCounter">
           {currentScore} WPM
           </h1>
         <h3>
-          Top Three**
+          Top Three***
         </h3>
         <h6>
           Ninja : 420 WPM
