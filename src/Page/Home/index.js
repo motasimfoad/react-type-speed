@@ -1,18 +1,17 @@
 import React, {useState, useEffect} from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Modal, Button } from 'react-bootstrap';
 import '../Home/home.css';
 import TextArea from '../../Components/TextArea';
 import TextInput from '../../Components/TextInput';
 import Score from '../../Components/Score';
 import {randomText} from '../../Constant';
 import { useTimer } from 'use-timer';
-
-
-
+import Background from '../../Assets/img/bg.png';
+import ScoreCard from '../../Components/ScoreCard'
 function App() {
  
   const { time, start, pause, reset, isRunning } = useTimer();
-  
+  const [modalShow, setModalShow] = React.useState(true);
   const [currentScore, setCurrentScore] = useState(10);
   const [currentText, setCurrentText] = useState(randomText());
   const [userText, setUserText] = useState('');
@@ -42,6 +41,10 @@ function App() {
      }
   };
 
+  var sectionStyle = {
+    backgroundImage: `url(${Background})`
+ }
+
   return (
    <Container className="main" fluid>
        <Row>
@@ -55,6 +58,10 @@ function App() {
            <Col xl={6}>
            <Score time={time} charCount={charCount}/>
           </Col>
+          <ScoreCard
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+        />
        </Row>
    </Container>
   );
