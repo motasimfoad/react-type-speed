@@ -18,7 +18,6 @@ function App() {
   const [userText, setUserText] = useState('');
   const [started, setStarted] = useState(false);
   const [finished, setFinished] = useState(false);
-  // const [time, setTime] = useState(0);
   const [text, setText] = useState('');
   const [userInput, setUserInput] = useState('');
   const [charCount, setCharCount] = useState('');
@@ -28,44 +27,19 @@ function App() {
      start();
       setUserText(a);
       complete(a);
-      // timer();
       setCharCount(checker(a));
      
   };
 
-  const timer = () => {
-    // if (!started) {
-    //     setStarted(true);
-    //     setInterval(() => {
-    //         setTime(time => time + 1);  
-    //         }, 1000);
-    //   }
-    // let interval = null;
-    //     if (!started) {
-    //       interval = setInterval(() => {
-    //         setTime(time => time + 1);  
-    //       }, 1000);
-    //     } else if (!finished && time !== 0) {
-    //       clearInterval(interval);
-    //     }
-    //     return () => clearInterval(interval);
-      
-  };
-
   const checker = (e) => {
-    setText(() => currentText.replace(' ', ''));
-    return (() => e.replace(' ', '').split('').filter((s,i) => s === text[i]).length)
-  };
+      setText(() => currentText.replace(' ', ''));
+      return (() => e.replace(' ', '').split('').filter((s,i) => s === text[i]).length)
+    };
 
   const complete = (e) => {
     if (currentText.length === e.length) {
-      // clearInterval(timer);
-      // setStarted(false);
-      setFinished(true);
       pause();
-      console.log("compleated");
-      
-    }
+     }
   };
 
   return (
@@ -74,7 +48,7 @@ function App() {
            <Col xl={6}>
            <TextArea currentText={currentText} userText={userText}/>
            <div>
-          <input text="yoyo" type="text" placeholder="Input here" onChange={onChange} readOnly={finished}/>
+          <input type="text" placeholder="Input here" onChange={onChange} readOnly={finished}/>
           </div>
           {started}
           </Col>

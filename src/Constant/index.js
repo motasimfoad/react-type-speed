@@ -15,8 +15,6 @@ const randomText = () =>{
     return text[Math.floor(Math.random()*text.length)];
     } 
 
-
-
 export {
     randomText,
 };
