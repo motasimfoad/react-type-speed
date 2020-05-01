@@ -1,4 +1,4 @@
-const randomText = () =>{
+const randomText = () => {
 
     const text = [
         "After some months, it was time for farming and the farmer was already old and weak and can't dig the ground anymore so the old farmer wrote this letter to his son in prison. Son, this year I will not plant cassava and yam because I cant dig the field, I know if you were here you would have helped me." ,

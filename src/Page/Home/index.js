@@ -4,7 +4,7 @@ import '../Home/home.css';
 import TextArea from '../../Components/TextArea';
 import TextInput from '../../Components/TextInput';
 import Score from '../../Components/Score';
-import {randomText} from '../../Constant';
+import {randomText, scoreEngine} from '../../Constant';
 import { useTimer } from 'use-timer';
 import Background from '../../Assets/img/bg.png';
 import ScoreCard from '../../Components/ScoreCard'
@@ -12,7 +12,7 @@ function App() {
  
   const { time, start, pause, reset, isRunning } = useTimer();
   const [modalShow, setModalShow] = React.useState(true);
-  const [currentScore, setCurrentScore] = useState(10);
+  const [currentScore, setCurrentScore] = useState('0');
   const [currentText, setCurrentText] = useState(randomText());
   const [userText, setUserText] = useState('');
   const [started, setStarted] = useState(false);
@@ -27,7 +27,7 @@ function App() {
       setUserText(a);
       complete(a);
       setCharCount(checker(a));
-     
+      setCurrentScore(() => scoreEngine());
   };
 
   const checker = (e) => {
@@ -41,6 +41,16 @@ function App() {
      }
   };
 
+  const scoreEngine = () => {
+    if (charCount !== 0 && time !== 0) {
+      const wpm = (charCount/5) / (time/60);
+      return (
+         Math.round(wpm)
+      )
+    }
+    return 0;
+}
+
   var sectionStyle = {
     backgroundImage: `url(${Background})`
  }
@@ -53,7 +63,6 @@ function App() {
            <div>
           <input type="text" placeholder="Input here" onChange={onChange} readOnly={finished}/>
           </div>
-          {started}
           </Col>
            <Col xl={6}>
            <Score time={time} charCount={charCount}/>
@@ -61,7 +70,9 @@ function App() {
           <ScoreCard
             show={modalShow}
             onHide={() => setModalShow(false)}
+            currentScore={currentScore}
         />
+        {currentScore}
        </Row>
    </Container>
   );

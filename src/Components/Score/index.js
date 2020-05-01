@@ -19,7 +19,7 @@ function Score(props) {
       )
     }
     
-    return 0;
+    return '0 WPM';
 
   return (
   
