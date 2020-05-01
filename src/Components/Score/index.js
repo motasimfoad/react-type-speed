@@ -6,6 +6,21 @@ function Score(props) {
 
     const [currentScore, setCurrentScore] = useState(props.currentScore);
 
+    if (props.charCount !== 0 && props.time !== 0) {
+      const wpm = (props.charCount/5) / (props.time/60);
+      return (
+        <Row>
+          <Col>
+          <Jumbotron>
+          {Math.round(wpm)} wpm
+          </Jumbotron>
+          </Col> 
+       </Row>
+      )
+    }
+    
+    return 0;
+
   return (
   
        <Row>
