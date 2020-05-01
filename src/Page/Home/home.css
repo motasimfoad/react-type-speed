@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Raleway|Montserrat|Raleway+Dot|Asap|Barlow|Glegoo|Julius+Sans+One|Lato|Muli|Poiret+One|Sulphur+Point|Turret+Road&display=swap');
+
 .main{
     height: 100vh;
     background: url('../../Assets/img/bg.png') no-repeat center center fixed; 
@@ -5,4 +7,24 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    text-align: center;
 }
+
+.nextBtn{
+    min-width: 35%;
+    background-color: #2ecc71;
+}
+
+.nextBtn:hover{
+    background-color: #27ae60;
+}
+
+.userInput{
+    width: 60%;
+    height: 200px;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 20px;
+}
+

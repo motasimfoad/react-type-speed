@@ -12,11 +12,12 @@ function TextArea(props) {
     })
 
   return (
-             <div>
-                 <h1>
+             <div className="textAreaContainer">
+                 <br />
+                 <h1 className="title">
                  Typing Speed Test
                  </h1>
-                 <div>
+                 <div className="textArea">
                     {
                     testText.map((s,i) => {
                         let color;

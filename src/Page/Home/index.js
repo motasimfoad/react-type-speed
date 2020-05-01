@@ -6,7 +6,6 @@ import TextInput from '../../Components/TextInput';
 import Score from '../../Components/Score';
 import {randomText, scoreEngine} from '../../Constant';
 import { useTimer } from 'use-timer';
-import Background from '../../Assets/img/bg.png';
 import ScoreCard from '../../Components/ScoreCard'
 function App() {
  
@@ -52,22 +51,21 @@ function App() {
     return 0;
 }
 
-  var sectionStyle = {
-    backgroundImage: `url(${Background})`
- }
-
   return (
    <Container className="main" fluid>
        <Row>
-           <Col xl={7}>
+           <Col xl={7} style={{marginTop:'10%'}}>
+           < br />
            <TextArea currentText={currentText} userText={userText}/>
+           < br />
            <div>
-            <input type="text" placeholder="Input here" onChange={onChange} readOnly={finished}/>
+            <input className="userInput" type="text" placeholder="Start typing the peragraph above" onChange={onChange} readOnly={finished}/>
           </div>
-          <button>Next</button>
+          < br />
+          <Button className="nextBtn">Next</Button>
           </Col>
           <Col xl={5}>
-           <Score time={time} charCount={charCount}/>
+           <Score time={time} charCount={charCount} currentScore={currentScore}/>
           </Col>
           <ScoreCard
             show={modalShow}

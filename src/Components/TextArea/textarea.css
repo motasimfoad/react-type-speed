@@ -1,1 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Abel|Raleway|Montserrat|Raleway+Dot|Asap|Barlow|Glegoo|Julius+Sans+One|Lato|Muli|Poiret+One|Sulphur+Point|Turret+Road&display=swap');
+
+.textAreaContainer{
+   
+    
+}
+
+.textArea{
+    width: 65%;
+    max-height: 300px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1%;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 20px;
+    overflow: scroll;
+}
