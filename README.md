@@ -1,4 +1,4 @@
-React Type Speed app
+###React Type Speed app
 
 Simple type speed testing app built using ReactJS, React Hooks, Firebase. 
 
