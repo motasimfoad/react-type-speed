@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Raleway|Montserrat|Raleway+Dot|Asap|Barlow|Glegoo|Julius+Sans+One|Lato|Muli|Poiret+One|Sulphur+Point|Turret+Road&display=swap');
+
+.scoreContainer{
+   text-align: center;
+   color: #7f8c8d;
+   position: relative;
+   top: 33%;
+   font-family: 'Montserrat';
+}
+
+.wpmCounter{
+    font-family: 'Sulphur Point', sans-serif;
+    font-weight: 900;
+    color: #788788;
+    text-align: center;
+    font-size: 5rem;
+}
