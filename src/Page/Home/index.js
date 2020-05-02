@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import { Container, Row, Col, Modal, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import '../Home/home.css';
 import TextArea from '../../Components/TextArea';
 import Score from '../../Components/Score';
 import {randomText, scoreEngine} from '../../Constant';
 import { useTimer } from 'use-timer';
-import ScoreCard from '../../Components/ScoreCard'
+import ScoreCard from '../../Components/ScoreCard';
+
 function App() {
  
   const { time, start, pause, reset, isRunning } = useTimer();
@@ -13,10 +14,7 @@ function App() {
   const [currentScore, setCurrentScore] = useState('0');
   const [currentText, setCurrentText] = useState(randomText());
   const [userText, setUserText] = useState('');
-  const [started, setStarted] = useState(false);
-  const [finished, setFinished] = useState(false);
   const [text, setText] = useState('');
-  const [userInput, setUserInput] = useState('');
   const [charCount, setCharCount] = useState('');
 
   const onChange = (e) => {
@@ -50,6 +48,10 @@ function App() {
     return 0;
 }
 
+  const next = () => {
+    window.location.reload(false);
+  }
+
   return (
    <Container className="main" fluid>
        <Row>
@@ -58,13 +60,13 @@ function App() {
            <TextArea currentText={currentText} userText={userText}/>
            < br />
            <div>
-            <input className="userInput" type="text" placeholder="Start typing the peragraph above" onChange={onChange} readOnly={finished}/>
+            <input className="userInput" type="text" placeholder="Start typing the peragraph above" onChange={onChange}/>
           </div>
           < br />
-          <Button className="nextBtn">Next</Button>
+          <Button className="nextBtn" onClick={next}>Next</Button>
           </Col>
           <Col xl={5}>
-           <Score time={time} charCount={charCount} currentScore={currentScore}/>
+           <Score currentScore={currentScore}/>
           </Col>
           <ScoreCard
             show={modalShow}
