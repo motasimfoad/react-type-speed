@@ -3,11 +3,11 @@ import '../Score/score.css';
 
 function Score(props) {
 
-  const [currentScore, setCurrentScre] = useState(0);
+  const [currentScore, setCurrentScore] = useState(0);
 
     useEffect(() => {
-      setCurrentScre(props.currentScore);
-  })
+      setCurrentScore(props.currentScore);
+  }, [props.currentScore])
 
     return (
         <div className="scoreContainer">

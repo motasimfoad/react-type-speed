@@ -1,18 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import '../Home/home.css';
 import TextArea from '../../Components/TextArea';
 import Score from '../../Components/Score';
-import {randomText, scoreEngine} from '../../Constant';
-import { useTimer } from 'use-timer';
 import ScoreCard from '../../Components/ScoreCard';
+import {randomText} from '../../Constant';
+import { useTimer } from 'use-timer';
 
 function App() {
  
-  const { time, start, pause, reset, isRunning } = useTimer();
+  const { time, start, pause } = useTimer();
   const [modalShow, setModalShow] = React.useState(false);
   const [currentScore, setCurrentScore] = useState('0');
-  const [currentText, setCurrentText] = useState(randomText());
+  const [currentText] = useState(randomText());
   const [userText, setUserText] = useState('');
   const [text, setText] = useState('');
   const [charCount, setCharCount] = useState('');

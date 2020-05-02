@@ -2,16 +2,16 @@ import React, {useState, useEffect} from 'react';
 import '../TextArea/textarea.css';
 
 function TextArea(props) {
-    const [currentText, setCurrentText] = useState(props.currentText);
-    const [testText, setTestText] = useState(() => currentText.split(''));
+    const [currentText] = useState(props.currentText);
+    const [testText] = useState(() => currentText.split(''));
     const [userText, setUserText] = useState(props.userText);
     
     useEffect(() => {
         setUserText(props.userText);
-    })
+    }, [props.userText])
 
   return (
-             <div className="textAreaContainer">
+             <div>
                  <br />
                  <h1 className="title">
                  Typing Speed Test
