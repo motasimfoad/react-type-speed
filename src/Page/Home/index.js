@@ -62,7 +62,7 @@ function App() {
      <Helmet>
                 <meta charSet="utf-8" />
                 <title>Online typing speed test built using ReactJS</title>
-                <link rel="canonical" href="http://game.motasimfoad.com/typespeed" />
+                <link rel="canonical" href="http://typespeed.motasimfoad.com/"/>
                 <meta name="description" content="Test your typing speed online for free. Easy and simple to use." />
      </Helmet>
        <Row>
@@ -71,7 +71,7 @@ function App() {
            <TextArea currentText={currentText} userText={userText}/>
            < br />
            <div>
-            <input className="userInput" type="text" placeholder="Start typing the peragraph above" onChange={onChange}/>
+            <input className="userInput" type="text" placeholder="Start typing the peragraph above" onChange={onChange} onpaste="return false;" />
           </div>
           < br />
           <Button className="nextBtn" onClick={next}>Next</Button>
