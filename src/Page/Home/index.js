@@ -7,7 +7,10 @@ import ScoreCard from '../../Components/ScoreCard';
 import {randomText} from '../../Constant';
 import { useTimer } from 'use-timer';
 import ReactGa from 'react-ga';
-import {Helmet} from "react-helmet";
+import {Helmet} from 'react-helmet';
+import Sound from '../../Assets/audio/key.mp3';
+
+let audio = new Audio(Sound);
 
 function App() {
 
@@ -24,6 +27,8 @@ function App() {
 
   const onChange = (e) => {
      const a = e.currentTarget.value;
+      audio.play();
+      audio.playbackRate = 1.1;
       start();
       setUserText(a);
       complete(a);
