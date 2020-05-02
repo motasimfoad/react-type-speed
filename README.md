@@ -1,3 +1,11 @@
+React Type Speed app
+
+Simple type speed testing app built using ReactJS, React Hooks, Firebase. 
+
+Live Demo : https://typespeed.motasimfoad.com
+
+For any queries : https://motasimfoad.com/contact
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
