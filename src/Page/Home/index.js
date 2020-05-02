@@ -7,6 +7,7 @@ import ScoreCard from '../../Components/ScoreCard';
 import {randomText} from '../../Constant';
 import { useTimer } from 'use-timer';
 import ReactGa from 'react-ga';
+import {Helmet} from "react-helmet";
 
 function App() {
 
@@ -58,6 +59,12 @@ function App() {
 
   return (
    <Container className="main" fluid>
+     <Helmet>
+                <meta charSet="utf-8" />
+                <title>Online typing speed test built using ReactJS</title>
+                <link rel="canonical" href="http://game.motasimfoad.com/typespeed" />
+                <meta name="description" content="Test your typing speed online for free. Easy and simple to use." />
+     </Helmet>
        <Row>
            <Col xl={7} style={{marginTop:'10%'}}>
            < br />
