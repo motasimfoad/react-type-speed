@@ -75,6 +75,11 @@ function App() {
           </div>
           < br />
           <Button className="nextBtn" onClick={next}>Next</Button>
+          < br />< br />< br />< br />
+          <a href="https://motasimfoad.com" target="_blank">
+          (c)Motasim Foad
+          </a>
+          
           </Col>
           <Col xl={5}>
            <Score currentScore={currentScore}/>
