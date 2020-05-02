@@ -6,8 +6,12 @@ import Score from '../../Components/Score';
 import ScoreCard from '../../Components/ScoreCard';
 import {randomText} from '../../Constant';
 import { useTimer } from 'use-timer';
+import ReactGa from 'react-ga';
 
 function App() {
+
+  ReactGa.initialize("UA-154721739-1");
+  ReactGa.pageview('Typing Spped App Screen');
  
   const { time, start, pause } = useTimer();
   const [modalShow, setModalShow] = useState(false);
