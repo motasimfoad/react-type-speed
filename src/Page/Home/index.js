@@ -10,8 +10,8 @@ import { useTimer } from 'use-timer';
 function App() {
  
   const { time, start, pause } = useTimer();
-  const [modalShow, setModalShow] = React.useState(false);
-  const [currentScore, setCurrentScore] = useState('0');
+  const [modalShow, setModalShow] = useState(false);
+  const [currentScore, setCurrentScore] = useState(0);
   const [currentText] = useState(randomText());
   const [userText, setUserText] = useState('');
   const [text, setText] = useState('');

@@ -1,15 +1,33 @@
 import React, {useState, useEffect} from 'react';
 import '../Score/score.css';
+import firebase from '../../Firebase/Config';
+
+function useScore(){
+  const [score, setScore] = useState([]);
+  useEffect(() => {
+    firebase
+    .firestore()
+    .collection('TypeSpeed')
+    .orderBy('wpm', 'desc')
+    .onSnapshot((snapshot) =>{
+      const newScore = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      }))
+      setScore(newScore);
+    })
+  }, [])
+ return score.slice(0,3);
+}
 
 function Score(props) {
-
-  const [currentScore, setCurrentScore] = useState(0);
-
+    const [currentScore, setCurrentScore] = useState(0);
+    const score = useScore();
     useEffect(() => {
-      setCurrentScore(props.currentScore);
-  }, [props.currentScore])
+        setCurrentScore(props.currentScore);
+    }, [props.currentScore])
 
-    return (
+  return (
         <div className="scoreContainer">
           <h5>
             Your Speed :
@@ -20,15 +38,11 @@ function Score(props) {
         <h3>
           Top Three***
         </h3>
-        <h6>
-          Ninja : 420 WPM
-        </h6>
-        <h6>
-          Ninja : 420 WPM
-        </h6>
-        <h6>
-          Ninja : 420 WPM
-        </h6>
+        {score.map((item) =>
+                <h6 key={item.id}> 
+                {item.name} : {item.wpm} WPM
+                </h6>
+              )}
         </div>
         );
 }
