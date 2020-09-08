@@ -9,7 +9,7 @@
     font-family: 'Montserrat';
     font-weight: 500;
     font-size: 20px;
-    overflow: scroll;
+    overflow: hidden;
     -webkit-user-select: none; 
       -webkit-touch-callout: none; 
       -moz-user-select: none; 
