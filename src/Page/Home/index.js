@@ -64,6 +64,10 @@ function App() {
     window.location.reload(false);
   }
 
+  const pas = () => {
+    console.log("lalala");
+  }
+
   return (
    <Container className="main" fluid>
      <Helmet>
@@ -78,12 +82,12 @@ function App() {
            <TextArea currentText={currentText} userText={userText}/>
            < br />
            <div>
-            <input className="userInput" type="text" placeholder="Start typing here ..." onChange={onChange}/>
+            <input className="userInput" type="text" placeholder="Start typing here ..." onChange={onChange} autoComplete="off" onPaste={pas} />
           </div>
           < br />
           <Button className="nextBtn" onClick={next}>Next</Button>
           < br />< br />< br />< br />
-          <a href="https://motasimfoad.com" target="_blank">
+          <a href="https://motasimfoad.com" target="_blank" rel="noopener noreferrer">
           (c)Motasim Foad
           </a>
           
