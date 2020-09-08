@@ -78,7 +78,7 @@ function App() {
            <TextArea currentText={currentText} userText={userText}/>
            < br />
            <div>
-            <input className="userInput" type="text" placeholder="Start typing the peragraph above" onChange={onChange}/>
+            <input className="userInput" type="text" placeholder="Start typing here ..." onChange={onChange}/>
           </div>
           < br />
           <Button className="nextBtn" onClick={next}>Next</Button>
