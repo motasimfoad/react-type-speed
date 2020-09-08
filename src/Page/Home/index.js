@@ -12,11 +12,13 @@ import Sound from '../../Assets/audio/key.mp3';
 
 let audio = new Audio(Sound);
 
+// Motasim Foads google analytics, replace with your if you want
+ReactGa.initialize("UA-154721739-1");
+ReactGa.pageview('Typing Spped App Screen');
+// Motasim Foads google analytics, replace with your if you want
+
 function App() {
 
-  ReactGa.initialize("UA-154721739-1");
-  ReactGa.pageview('Typing Spped App Screen');
- 
   const { time, start, pause } = useTimer();
   const [modalShow, setModalShow] = useState(false);
   const [currentScore, setCurrentScore] = useState(0);
