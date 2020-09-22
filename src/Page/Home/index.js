@@ -81,7 +81,7 @@ function App() {
             <textarea cols="40" rows="10" className="userInput" type="text" placeholder="Start typing here ..." onChange={onChange} autoComplete="false" onPaste={()=> {return false}} />
           </div>
           < br />
-          <Button className="nextBtn" onClick={next}>Next</Button>
+          <Button variant="dark" size="lg" className="nextBtn" onClick={next}>Next</Button>
           < br />< br />< br />< br />
           <a href="https://motasimfoad.com" target="_blank" rel="noopener noreferrer">
           (c)Motasim Foad

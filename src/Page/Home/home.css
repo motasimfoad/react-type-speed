@@ -12,12 +12,6 @@
 
 .nextBtn{
     min-width: 35%;
-    border-color: #ffffff;
-    background-color: #2ecc71;
-}
-
-.nextBtn:hover{
-    background-color: #27ae60;
 }
 
 .userInput{
