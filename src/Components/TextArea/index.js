@@ -14,8 +14,8 @@ function TextArea(props) {
              <div>
                  <br />
                  <h1 className="title">
-                 Typing Speed Test
-                 </h1>
+                     <u> Typing Speed Test</u>
+                </h1>
                  <div className="textArea">
                     {
                     testText.map((s,i) => {

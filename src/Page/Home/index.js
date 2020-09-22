@@ -72,7 +72,7 @@ function App() {
                 <link rel="canonical" href="http://typespeed.motasimfoad.com/"/>
                 <meta name="description" content="Test your typing speed online for free. Easy and simple to use." />
      </Helmet>
-       <Row>
+       <Row style={{height:'100vh'}}>
            <Col xl={7} style={{marginTop:'10%'}}>
             < br />
             <TextArea currentText={currentText} userText={userText}/>
@@ -82,19 +82,20 @@ function App() {
             </div>
             < br />
             <Button variant="dark" size="lg" className="nextBtn" onClick={next}>Next</Button>
-            < br />< br />< br />< br />
-            <a href="https://motasimfoad.com" target="_blank" rel="noopener noreferrer">
-            (c)Motasim Foad
-            </a>
+            <div style={{marginTop:'10%'}}>
+              <a href="https://motasimfoad.com" target="_blank" rel="noopener noreferrer">
+                  (c)Motasim Foad
+              </a>
+            </div>
           </Col>
           <Col xl={5}>
            <Score currentscore={currentScore}/>
-          </Col>
-          <ScoreCard
+           <ScoreCard
             show={modalShow}
             onHide={() => setModalShow(false)}
             currentscore={currentScore}
-        />
+            />
+          </Col>
        </Row>
    </Container>
   );
