@@ -2,17 +2,33 @@ import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import '../ScoreCard/scorecard.css';
 import firebase from '../../Firebase/Config';
+import {useMutation, gql} from '@apollo/client';
+
+const FINAL_MUTATION = gql`
+  mutation MyMutation($name: String, $score: String) {
+    insert_type_test(objects: {name: $name, score: $score}) {
+      returning {
+        id
+      }
+    }
+  }
+`;
 
 function ScoreCard(props) {
   
-  const [userName, setUserName] = useState('')
+  const [userName, setUserName] = useState('');
+  const [first_add] = useMutation(FINAL_MUTATION);
+  const score = props.currentscore;
   
   const resultGenerator = () =>{
-    firebase.firestore().collection('TypeSpeed').add({
-      name: userName,
-      wpm: props.currentScore
-    });
-    props.onHide();
+    first_add({
+      variables: {
+        name: `${userName}`,
+        score: `${score}`,
+      }
+    }).then( a => {
+      props.onHide();
+    })
   };
    
   return (
@@ -26,7 +42,7 @@ function ScoreCard(props) {
         <Form.Group>
             <br />
             <h2 className="title">
-                Submit Score : {props.currentScore}WPM?
+                Submit Score : {props.currentscore}WPM?
             </h2>
             <br />
             <br />

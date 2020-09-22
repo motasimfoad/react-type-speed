@@ -88,12 +88,12 @@ function App() {
           </a>
           </Col>
           <Col xl={5}>
-           <Score currentScore={currentScore}/>
+           <Score currentscore={currentScore}/>
           </Col>
           <ScoreCard
             show={modalShow}
             onHide={() => setModalShow(false)}
-            currentScore={currentScore}
+            currentscore={currentScore}
         />
        </Row>
    </Container>
