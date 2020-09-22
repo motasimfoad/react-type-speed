@@ -9,10 +9,8 @@ function TextArea(props) {
     useEffect(() => {
         setUserText(props.userText);
     }, [props.userText])
-
-
-
-  return (
+    
+    return (
              <div>
                  <br />
                  <h1 className="title">

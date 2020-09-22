@@ -74,18 +74,18 @@ function App() {
      </Helmet>
        <Row>
            <Col xl={7} style={{marginTop:'10%'}}>
-           < br />
-           <TextArea currentText={currentText} userText={userText}/>
-           < br />
-           <div>
-            <textarea cols="40" rows="10" className="userInput" type="text" placeholder="Start typing here ..." onChange={onChange} autoComplete="false" onPaste={()=> {return false}} />
-          </div>
-          < br />
-          <Button variant="dark" size="lg" className="nextBtn" onClick={next}>Next</Button>
-          < br />< br />< br />< br />
-          <a href="https://motasimfoad.com" target="_blank" rel="noopener noreferrer">
-          (c)Motasim Foad
-          </a>
+            < br />
+            <TextArea currentText={currentText} userText={userText}/>
+            < br />
+            <div>
+              <textarea cols="40" rows="10" className="userInput" type="text" placeholder="Start typing here ..." onChange={onChange} autoComplete="false" onPaste={()=> {return false}} />
+            </div>
+            < br />
+            <Button variant="dark" size="lg" className="nextBtn" onClick={next}>Next</Button>
+            < br />< br />< br />< br />
+            <a href="https://motasimfoad.com" target="_blank" rel="noopener noreferrer">
+            (c)Motasim Foad
+            </a>
           </Col>
           <Col xl={5}>
            <Score currentscore={currentScore}/>
