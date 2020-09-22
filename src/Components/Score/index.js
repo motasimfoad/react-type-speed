@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import '../Score/score.css';
-import firebase from '../../Firebase/Config';
+
 import {gql, useQuery} from '@apollo/client';
+import { set } from 'react-ga';
 
 const SCORE = gql`
 query score {
-  type_test(order_by: {score: desc}) {
+  type_test(order_by: {score: desc}, limit: 3) {
     id
     name
     score
@@ -13,34 +14,63 @@ query score {
 }
 `;
 
-function useScore(){
-  const score = useQuery(SCORE);
-  useEffect(() => {
+const TodoPrivateListQuery = () => {
 
-    // firebase
-    // .firestore()
-    // .collection('TypeSpeed')
-    // .orderBy('wpm', 'desc')
-    // .onSnapshot((snapshot) =>{
-    //   const newScore = snapshot.docs.map((doc) => ({
-    //     id: doc.id,
-    //     ...doc.data()
-    //   }))
-    //   setScore(newScore);
-    // })
+  const { loading, error, data } = useQuery(SCORE);
+  
+  if (loading) {
 
-  }, [])
- return score.data;
-// console.log(score.data)
-}
+    return <div>Loading...</div>;
+
+  }
+
+  if (error) {
+
+    console.error(error);
+
+    return <div>Error!</div>;
+
+  }
+
+  return <div>
+    {data.type_test.map((item) =>
+                <h6 key={item.id}> 
+                {item.name} : {item.score} WPM
+                </h6>
+              )}
+  </div>;
+
+};
+
+
+
 
 function Score(props) {
+  
+  // function useScore(){
+  //   const { data } = useQuery(SCORE);
+  //   if (data) {
+  //     return data.type_test[2].id; 
+  // }
+  //   useEffect(() => {
+  
+     
+  
+  //   }, [])
+  //  return score.type_test;
+  // console.log(score.data)
+  // }
     const [currentScore, setCurrentScore] = useState(0);
-    const score = useScore();
-    console.log(score)
+    // const  score  = useScore();
+    // const [a, setA] = useState("");
+    // const  {data}  = useQuery(SCORE);
     useEffect(() => {
-        setCurrentScore(props.currentscore);
+      setCurrentScore(props.currentscore);
     }, [props.currentscore]);
+
+    // setA(data)
+
+    // console.log(a);
 
 
   return (
@@ -54,9 +84,10 @@ function Score(props) {
         <h3>
           Top Three***
         </h3>
+        <TodoPrivateListQuery />
         {/* {score.map((item) =>
                 <h6 key={item.id}> 
-                {item.name} : {item.wpm} WPM
+                {item.name} : {item.score} WPM
                 </h6>
               )} */}
         </div>
