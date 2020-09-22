@@ -17,7 +17,7 @@ function ScoreCard(props) {
   
   const [userName, setUserName] = useState('');
   const [first_add] = useMutation(FINAL_MUTATION);
-  const score = props.currentscore;
+  const score = parseInt(props.currentscore);
   
   const resultGenerator = () =>{
     first_add({
