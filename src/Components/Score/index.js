@@ -1,31 +1,38 @@
 import React, {useState, useEffect} from 'react';
 import '../Score/score.css';
-import firebase from '../../Firebase/Config';
+import {gql, useQuery} from '@apollo/client';
 
-function useScore(){
-  const [score, setScore] = useState([]);
-  useEffect(() => {
-    firebase
-    .firestore()
-    .collection('TypeSpeed')
-    .orderBy('wpm', 'desc')
-    .onSnapshot((snapshot) =>{
-      const newScore = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data()
-      }))
-      setScore(newScore);
-    })
-  }, [])
- return score.slice(0,3);
+const SCORE = gql`
+query score {
+  type_test(order_by: {score: desc}, limit: 3) {
+    id
+    name
+    score
+  }
 }
+`;
+
+const TopScore = () => {
+  const { loading, data } = useQuery(SCORE);
+  if (loading) {
+      return <div>Loading...</div>;
+  }
+
+  return <div>
+    {data.type_test.map((item) =>
+                <h6 key={item.id}> 
+                {item.name} : {item.score} WPM
+                </h6>
+              )}
+  </div>;
+};
 
 function Score(props) {
     const [currentScore, setCurrentScore] = useState(0);
-    const score = useScore();
+    
     useEffect(() => {
-        setCurrentScore(props.currentScore);
-    }, [props.currentScore])
+      setCurrentScore(props.currentscore);
+    }, [props.currentscore]);
 
   return (
         <div className="scoreContainer">
@@ -38,13 +45,9 @@ function Score(props) {
         <h3>
           Top Three***
         </h3>
-        {score.map((item) =>
-                <h6 key={item.id}> 
-                {item.name} : {item.wpm} WPM
-                </h6>
-              )}
+          <TopScore />
         </div>
-        );
+      );
 }
 
 export default Score;

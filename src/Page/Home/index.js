@@ -7,13 +7,18 @@ import ScoreCard from '../../Components/ScoreCard';
 import {randomText} from '../../Constant';
 import { useTimer } from 'use-timer';
 import ReactGa from 'react-ga';
-import {Helmet} from "react-helmet";
+import {Helmet} from 'react-helmet';
+import Sound from '../../Assets/audio/key.mp3';
+
+let audio = new Audio(Sound);
+
+// Motasim Foads google analytics, replace with your if you want
+ReactGa.initialize("UA-154721739-1");
+ReactGa.pageview('Typing Spped App Screen');
+// Motasim Foads google analytics, replace with your if you want
 
 function App() {
 
-  ReactGa.initialize("UA-154721739-1");
-  ReactGa.pageview('Typing Spped App Screen');
- 
   const { time, start, pause } = useTimer();
   const [modalShow, setModalShow] = useState(false);
   const [currentScore, setCurrentScore] = useState(0);
@@ -24,6 +29,8 @@ function App() {
 
   const onChange = (e) => {
      const a = e.currentTarget.value;
+      audio.play();
+      audio.playbackRate = 1.1;
       start();
       setUserText(a);
       complete(a);
@@ -65,30 +72,30 @@ function App() {
                 <link rel="canonical" href="http://typespeed.motasimfoad.com/"/>
                 <meta name="description" content="Test your typing speed online for free. Easy and simple to use." />
      </Helmet>
-       <Row>
+       <Row style={{height:'100vh'}}>
            <Col xl={7} style={{marginTop:'10%'}}>
-           < br />
-           <TextArea currentText={currentText} userText={userText}/>
-           < br />
-           <div>
-            <input className="userInput" type="text" placeholder="Start typing the peragraph above" onChange={onChange}/>
-          </div>
-          < br />
-          <Button className="nextBtn" onClick={next}>Next</Button>
-          < br />< br />< br />< br />
-          <a href="https://motasimfoad.com" target="_blank">
-          (c)Motasim Foad
-          </a>
-          
+            < br />
+            <TextArea currentText={currentText} userText={userText}/>
+            < br />
+            <div>
+              <textarea cols="40" rows="10" className="userInput" type="text" placeholder="Start typing here ..." onChange={onChange} autoComplete="false" onPaste={()=> {return false}} />
+            </div>
+            < br />
+            <Button variant="dark" size="lg" className="nextBtn" onClick={next}>Next</Button>
+            <div style={{marginTop:'10%'}}>
+              <a href="https://motasimfoad.com" target="_blank" rel="noopener noreferrer">
+                  (c)Motasim Foad
+              </a>
+            </div>
           </Col>
           <Col xl={5}>
-           <Score currentScore={currentScore}/>
-          </Col>
-          <ScoreCard
+           <Score currentscore={currentScore}/>
+           <ScoreCard
             show={modalShow}
             onHide={() => setModalShow(false)}
-            currentScore={currentScore}
-        />
+            currentscore={currentScore}
+            />
+          </Col>
        </Row>
    </Container>
   );
