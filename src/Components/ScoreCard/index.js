@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import '../ScoreCard/scorecard.css';
-import firebase from '../../Firebase/Config';
 import {useMutation, gql} from '@apollo/client';
 
 const FINAL_MUTATION = gql`
@@ -53,7 +52,6 @@ function ScoreCard(props) {
         <Button className="btn1" onClick={props.onHide}>Cancel</Button>
         <Button className="btn2" onClick={resultGenerator}>Submit</Button>
         </div>
-        
         </Form.Group>
         </Modal.Body>
       </Modal>

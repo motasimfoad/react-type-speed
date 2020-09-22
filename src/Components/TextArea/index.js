@@ -5,7 +5,6 @@ function TextArea(props) {
     const [currentText] = useState(props.currentText);
     const [testText] = useState(() => currentText.split(''));
     const [userText, setUserText] = useState(props.userText);
-    const [a, setA] = useState('');
     
     useEffect(() => {
         setUserText(props.userText);
